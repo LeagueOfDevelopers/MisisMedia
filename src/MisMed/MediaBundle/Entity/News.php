@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="news")
+ * @ORM\HasLifecycleCallbacks
  */
 class News
 {
@@ -144,10 +145,12 @@ class News
      * @param \DateTime $date
      *
      * @return News
+     *
+     * @ORM\PrePersist
      */
-    public function setDate($date)
+    public function setDate()
     {
-        $this->date = $date;
+        $this->date = new \DateTime('now');;
 
         return $this;
     }
