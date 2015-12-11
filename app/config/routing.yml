@@ -1,3 +1,8 @@
+mis_med_media:
+    resource: "@MisMedMediaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

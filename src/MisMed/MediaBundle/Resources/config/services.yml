@@ -1,0 +1,4 @@
+services:
+#    mis_med_media.example:
+#        class: MisMed\MediaBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

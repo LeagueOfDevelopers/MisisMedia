@@ -1,0 +1,32 @@
+<?php
+// src\MisMed\MediaBundle\Entity\Img.php
+
+namespace MisMed\MediaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="img")
+ */
+class Img
+{
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $id_news;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $img;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $status;
+
+
+}
+
+?>
