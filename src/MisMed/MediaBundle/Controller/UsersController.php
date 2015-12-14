@@ -1,7 +1,7 @@
 <?php
 // src/MisMed/MediaBundle/Controller/UsersController.php
 use MisMed\MediaBundle\Entity\Users;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; // Почему-то не видит это
 
 public function createAction($name, $login, $password, $email, $institute, $sex, $status)
 {
@@ -17,7 +17,5 @@ public function createAction($name, $login, $password, $email, $institute, $sex,
     $em = $this->getDoctrine()->getEntityManager();
     $em->persist($user);
     $em->flush();
-
-    return new Response('Created product id '.$user->getId());
 }
 ?>

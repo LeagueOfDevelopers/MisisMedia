@@ -1,7 +1,7 @@
 <?php
 // src/MisMed/MediaBundle/Controller/NewsController.php
 use MisMed\MediaBundle\Entity\News;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; // Почему-то не видит это
 
 public function createAction($title, $desc_short, $desc_long, $date, $author, $link, $status)
 {
@@ -9,10 +9,9 @@ public function createAction($title, $desc_short, $desc_long, $date, $author, $l
     $news->setTitle($title);
     $news->setDescShort($desc_short);
     $news->setDescLong($desc_long);
-    $news->setDate($date);
+    $news->setDate();
     $news->setAuthor($author);
     $news->setLink($link);
-    $news->setStatus($status);
 
     $em = $this->getDoctrine()->getEntityManager();
     $em->persist($news);
