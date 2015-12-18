@@ -1,3 +1,7 @@
+pages_about:
+    resource: "@PagesAboutBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mis_med_media:
     resource: "@MisMedMediaBundle/Controller/"
     type:     annotation

@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Img
 {
     /**
+     * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="News", inversedBy="id")
      * @ORM\JoinColumn(name="id_news", referencedColumnName="id")

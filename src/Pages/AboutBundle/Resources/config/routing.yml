@@ -1,0 +1,3 @@
+pages_about_homepage:
+    path:     /about/{name}
+    defaults: { _controller: PagesAboutBundle:Default:index }
