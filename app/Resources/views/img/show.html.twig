@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Img</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id_news</th>
+                <td>{{ img.idnews }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ img.img }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ img.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('img_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('img_edit', { 'id': img.id_news }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

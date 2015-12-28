@@ -1,40 +1,66 @@
 <?php
-// src/MisMed/MediaBundle/Entity/Tag_news.php
+
 namespace MisMed\MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * TagNews
+ *
  * @ORM\Table(name="tag_news")
+ * @ORM\Entity
  */
-class Tag_news
+class TagNews
 {
     /**
-     * @ORM\Column(type="integer")
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_tag", type="integer", nullable=false)
      * @ORM\ManyToOne(targetEntity="Tag", inversedBy="id")
      * @ORM\JoinColumn(name="id_tag", referencedColumnName="id")
      */
-    protected $id_tag;
+    private $idTag;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var integer
+     *
+     * @ORM\Column(name="id_news", type="integer", nullable=false)
      * @ORM\ManyToOne(targetEntity="News", inversedBy="id")
      * @ORM\JoinColumn(name="id_news", referencedColumnName="id")
      */
-    protected $id_news;
+    private $idNews;
 
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set idTag
      *
      * @param integer $idTag
      *
-     * @return Tag_news
+     * @return TagNews
      */
     public function setIdTag($idTag)
     {
-        $this->id_tag = $idTag;
+        $this->idTag = $idTag;
 
         return $this;
     }
@@ -46,7 +72,7 @@ class Tag_news
      */
     public function getIdTag()
     {
-        return $this->id_tag;
+        return $this->idTag;
     }
 
     /**
@@ -54,11 +80,11 @@ class Tag_news
      *
      * @param integer $idNews
      *
-     * @return Tag_news
+     * @return TagNews
      */
     public function setIdNews($idNews)
     {
-        $this->id_news = $idNews;
+        $this->idNews = $idNews;
 
         return $this;
     }
@@ -70,8 +96,6 @@ class Tag_news
      */
     public function getIdNews()
     {
-        return $this->id_news;
+        return $this->idNews;
     }
-
-
 }

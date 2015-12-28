@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Portfol list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Iduser</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for portfol in portfols %}
+            <tr>
+                <td><a href="{{ path('portfol_show', { 'id': portfol.id }) }}">{{ portfol.id }}</a></td>
+                <td>{{ portfol.idUser }}</td>
+                <td>{{ portfol.image }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('portfol_show', { 'id': portfol.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('portfol_edit', { 'id': portfol.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('portfol_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

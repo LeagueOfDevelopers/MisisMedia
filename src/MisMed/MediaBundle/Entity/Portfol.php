@@ -1,33 +1,40 @@
 <?php
-// src/MisMed/MediaBundle/Entity/Portfolio.php
+
 namespace MisMed\MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Portfol
+ *
+ * @ORM\Table(name="portfol")
  * @ORM\Entity
- * @ORM\Table(name="portfolio")
  */
-class Portfolio
+class Portfol
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @OneToOne(targetEntity="Us_portfolio", orphanRemoval=true)
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     * @OneToOne(targetEntity="Us_portfolio", orphanRemoval=true)
+     * @var integer
+     *
+     * @ORM\Column(name="id_user", type="integer", nullable=false)
      */
-    protected $id_user;
+    private $idUser;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=false)
      */
-    protected $image;
+    private $image;
+
 
 
     /**
@@ -45,11 +52,11 @@ class Portfolio
      *
      * @param integer $idUser
      *
-     * @return Portfolio
+     * @return Portfol
      */
     public function setIdUser($idUser)
     {
-        $this->id_user = $idUser;
+        $this->idUser = $idUser;
 
         return $this;
     }
@@ -61,7 +68,7 @@ class Portfolio
      */
     public function getIdUser()
     {
-        return $this->id_user;
+        return $this->idUser;
     }
 
     /**
@@ -69,7 +76,7 @@ class Portfolio
      *
      * @param string $image
      *
-     * @return Portfolio
+     * @return Portfol
      */
     public function setImage($image)
     {

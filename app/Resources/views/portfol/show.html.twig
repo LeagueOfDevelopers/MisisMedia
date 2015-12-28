@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Portfol</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ portfol.id }}</td>
+            </tr>
+            <tr>
+                <th>Iduser</th>
+                <td>{{ portfol.idUser }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ portfol.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('portfol_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('portfol_edit', { 'id': portfol.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

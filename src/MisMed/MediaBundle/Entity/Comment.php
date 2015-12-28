@@ -1,43 +1,57 @@
 <?php
-// src\MisMed\MediaBundle\Entity\Comment.php
 
 namespace MisMed\MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * Comment
+ *
  * @ORM\Table(name="comment")
+ * @ORM\Entity
  */
 class Comment
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
      */
-    protected $title;
+    private $title;
 
     /**
-     * @ORM\Column(type="text")
+     * @var string
+     *
+     * @ORM\Column(name="text", type="text", length=65535, nullable=false)
      */
-    protected $text;
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    protected $name;
+    private $text;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_news", type="integer", nullable=false)
      * @ORM\ManyToOne(targetEntity="News", inversedBy="id")
      * @ORM\JoinColumn(name="id_news", referencedColumnName="id")
      */
-    protected $id_news;
+    private $idNews;
+
+
 
     /**
      * Get id
@@ -130,7 +144,7 @@ class Comment
      */
     public function setIdNews($idNews)
     {
-        $this->id_news = $idNews;
+        $this->idNews = $idNews;
 
         return $this;
     }
@@ -142,6 +156,6 @@ class Comment
      */
     public function getIdNews()
     {
-        return $this->id_news;
+        return $this->idNews;
     }
 }

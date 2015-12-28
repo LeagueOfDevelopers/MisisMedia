@@ -1,58 +1,76 @@
 <?php
-// src\MisMed\MediaBundle\Entity\Users.php
 
 namespace MisMed\MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * Users
+ *
  * @ORM\Table(name="users")
+ * @ORM\Entity
  */
 class Users
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @OneToOne(targetEntity="Us_portfolio", orphanRemoval=true)
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
-    protected $name;
+    private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="login", type="string", length=255, nullable=false)
      */
-    protected $login;
+    private $login;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
-    protected $password;
+    private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
-    protected $email;
+    private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="institut", type="string", length=255, nullable=false)
      */
-    protected $institut;
+    private $institut;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="sex", type="string", length=255, nullable=false)
      */
-    protected $sex;
+    private $sex;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=false)
      */
-    protected $status;
+    private $status;
+
+
 
     /**
      * Get id

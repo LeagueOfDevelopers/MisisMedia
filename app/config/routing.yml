@@ -1,3 +1,35 @@
+mis_med_media_portfol:
+    resource: "@MisMedMediaBundle/Controller/PortfolController.php"
+    type:     annotation
+
+mis_med_media_us_portfolio:
+    resource: "@MisMedMediaBundle/Controller/UsPortfolioController.php"
+    type:     annotation
+
+mis_med_media_users:
+    resource: "@MisMedMediaBundle/Controller/UsersController.php"
+    type:     annotation
+
+mis_med_media_tag_news:
+    resource: "@MisMedMediaBundle/Controller/TagNewsController.php"
+    type:     annotation
+
+mis_med_media_tag:
+    resource: "@MisMedMediaBundle/Controller/TagController.php"
+    type:     annotation
+
+mis_med_media_news:
+    resource: "@MisMedMediaBundle/Controller/NewsController.php"
+    type:     annotation
+
+mis_med_media_img:
+    resource: "@MisMedMediaBundle/Controller/ImgController.php"
+    type:     annotation
+
+mis_med_media_comment:
+    resource: "@MisMedMediaBundle/Controller/CommentController.php"
+    type:     annotation
+
 pages_about:
     resource: "@PagesAboutBundle/Resources/config/routing.yml"
     prefix:   /

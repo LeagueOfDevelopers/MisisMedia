@@ -1,60 +1,79 @@
 <?php
-// src/MisMed/MediaBundle/Entity/News.php
+
 namespace MisMed\MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * News
+ *
  * @ORM\Table(name="news")
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity
  */
 class News
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="id_news")
      * @ORM\OneToMany(targetEntity="Img", mappedBy="id_news")
-     * @ORM\OneToMany(targetEntity="Tag_news", mappedBy="id_news")
+     * @ORM\OneToMany(targetEntity="TagNews", mappedBy="id_news")
      */
-    protected $id;
+    private $id;
 
     public function __construct()
     {
         $this->id = new ArrayCollection();
     }
+    /*
+    *?
+    */
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
      */
-    protected $title;
+    private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="desc_short", type="string", length=255, nullable=false)
      */
-    protected $desc_short;
+    private $descShort;
 
     /**
-     * @ORM\Column(type="text")
+     * @var string
+     *
+     * @ORM\Column(name="desc_long", type="text", length=65535, nullable=false)
      */
-    protected $desc_long;
+    private $descLong;
 
     /**
-     * @ORM\Column(type="date")
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
      */
-    protected $date;
+    private $date;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="author", type="string", length=255, nullable=false)
      */
-    protected $author;
+    private $author;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="link", type="string", length=255, nullable=false)
      */
-    protected $link;
+    private $link;
+
 
 
     /**
@@ -100,7 +119,7 @@ class News
      */
     public function setDescShort($descShort)
     {
-        $this->desc_short = $descShort;
+        $this->descShort = $descShort;
 
         return $this;
     }
@@ -112,7 +131,7 @@ class News
      */
     public function getDescShort()
     {
-        return $this->desc_short;
+        return $this->descShort;
     }
 
     /**
@@ -124,7 +143,7 @@ class News
      */
     public function setDescLong($descLong)
     {
-        $this->desc_long = $descLong;
+        $this->descLong = $descLong;
 
         return $this;
     }
@@ -136,7 +155,7 @@ class News
      */
     public function getDescLong()
     {
-        return $this->desc_long;
+        return $this->descLong;
     }
 
     /**
@@ -145,12 +164,10 @@ class News
      * @param \DateTime $date
      *
      * @return News
-     *
-     * @ORM\PrePersist
      */
-    public function setDate()
+    public function setDate($date)
     {
-        $this->date = new \DateTime('now');;
+        $this->date = $date;
 
         return $this;
     }
@@ -213,5 +230,3 @@ class News
         return $this->link;
     }
 }
-
-?>

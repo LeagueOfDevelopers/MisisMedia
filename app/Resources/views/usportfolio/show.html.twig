@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>UsPortfolio</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ usPortfolio.id }}</td>
+            </tr>
+            <tr>
+                <th>Iduser</th>
+                <td>{{ usPortfolio.idUser }}</td>
+            </tr>
+            <tr>
+                <th>Idportf</th>
+                <td>{{ usPortfolio.idPortf }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('usportfolio_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('usportfolio_edit', { 'id': usPortfolio.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,35 +1,60 @@
 <?php
-// src\MisMed\MediaBundle\Entity\Img.php
 
 namespace MisMed\MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * Img
+ *
  * @ORM\Table(name="img")
+ * @ORM\Entity
  */
 class Img
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_news", type="integer", nullable=false)
      * @ORM\ManyToOne(targetEntity="News", inversedBy="id")
      * @ORM\JoinColumn(name="id_news", referencedColumnName="id")
      */
-    protected $id_news;
+    private $idNews;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=255, nullable=false)
      */
-    protected $img;
+    private $img;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=false)
      */
-    protected $status;
+    private $status;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set idNews
@@ -40,7 +65,7 @@ class Img
      */
     public function setIdNews($idNews)
     {
-        $this->id_news = $idNews;
+        $this->idNews = $idNews;
 
         return $this;
     }
@@ -52,7 +77,7 @@ class Img
      */
     public function getIdNews()
     {
-        return $this->id_news;
+        return $this->idNews;
     }
 
     /**

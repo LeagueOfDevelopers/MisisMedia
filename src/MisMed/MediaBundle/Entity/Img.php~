@@ -1,32 +1,47 @@
 <?php
-// src\MisMed\MediaBundle\Entity\Img.php
 
 namespace MisMed\MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * Img
+ *
  * @ORM\Table(name="img")
+ * @ORM\Entity
  */
 class Img
 {
     /**
-     * @ORM\Column(type="integer")
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id_news;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var integer
+     *
+     * @ORM\Column(name="id_news", type="integer", nullable=false)
      */
-    protected $img;
+    private $idNews;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=255, nullable=false)
      */
-    protected $status;
+    private $img;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=false)
+     */
+    private $status;
 
 
 }
 
-?>

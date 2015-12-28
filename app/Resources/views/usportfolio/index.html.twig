@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>UsPortfolio list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Iduser</th>
+                <th>Idportf</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for usPortfolio in usPortfolios %}
+            <tr>
+                <td><a href="{{ path('usportfolio_show', { 'id': usPortfolio.id }) }}">{{ usPortfolio.id }}</a></td>
+                <td>{{ usPortfolio.idUser }}</td>
+                <td>{{ usPortfolio.idPortf }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('usportfolio_show', { 'id': usPortfolio.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('usportfolio_edit', { 'id': usPortfolio.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('usportfolio_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

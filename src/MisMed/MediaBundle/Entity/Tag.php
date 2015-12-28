@@ -1,27 +1,35 @@
 <?php
-// src/MisMed/MediaBundle/Entity/Tag.php
+
 namespace MisMed\MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * Tag
+ *
  * @ORM\Table(name="tag")
+ * @ORM\Entity
  */
 class Tag
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\OneToMany(targetEntity="Tag_news", mappedBy="id_tag")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\OneToMany(targetEntity="TagNews", mappedBy="id_tag")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
-    protected $name;
+    private $name;
+
+
 
     /**
      * Get id
